@@ -1,0 +1,89 @@
+% x este o variabila globala
+variable x ::= { a, b, c } ;
+
+automatul_meu1 ::= FiniteAutomaton (
+    alphabet :: { a, b } ;
+    states :: { q0, q1, q2 } ;
+    final_states :: { q2 } ;
+    initial_state :: q0 ;
+
+    q0 -> (
+        a -> q1 ;
+        b -> q2 ;
+    ) ;
+
+    q1 -> (
+        a -> q0 ;
+        b -> q2 ;
+    ) ;
+
+    q2 -> (
+        a -> q1 ;
+    ) ;
+) ;;
+
+automatul_meu1 ::= FiniteAutomaton (
+    alphabet :: { a, b } ;
+    states :: { q0, q1, q2 } ;
+    final_states :: { q2 } ;
+    initial_state :: q0 ;
+    variable p ::= { a, b } ;
+
+    q0 -> (
+        a -> q1 ;
+        b -> q2 ;
+    ) ;
+
+    q1 -> (
+        a -> q0 ;
+        b -> q2 ;
+    ) ;
+
+    q2 -> (
+        a -> q1 ;
+        p -> q2 ;
+    ) ;
+) ;;
+
+automatul_meu2 ::= FiniteAutomaton (
+    alphabet :: { a, b } ;
+    states :: { q0, q1, q2 } ;
+    final_states :: { q2 } ;
+    initial_state :: q0 ;
+
+    q0 -> (
+        a -> q1 ;
+        b -> q2 ;
+    ) ;
+
+    q1 -> (
+        a -> q0 ;
+        b -> q2 ;
+    ) ;
+
+    q2 -> (
+        x -> q2 ;
+    ) ;
+) ;;
+
+automatul_meu3 ::= FiniteAutomaton (
+    alphabet :: { a, b } ;
+    states :: { q0, q1, q2, q3 } ;
+    final_states :: { q2 } ;
+    initial_state :: q0 ;
+
+    q0 -> (
+        a -> q1 ;
+        b -> q2 ;
+    ) ;
+
+    q1 -> (
+        a -> q0 ;
+        b -> q2 ;
+    ) ;
+
+    q2 -> (
+        x -> q2 ;
+        b -> q2 ;
+    ) ;
+) ;;

@@ -1,0 +1,47 @@
+% x este o variabila globala
+variable x ::= { a, b, c } ;
+
+gramatica_gr1 ::= Grammar (
+    nonterminals :: { S, S1, S2 } ;
+    alphabet :: { a, b } ;
+    start_symbol :: S ;
+    variable y ::= { a, b, c } ;
+
+    S -> a&S | b&S | a&S1 ;
+    S1 -> b&S2 | e | y&S ;
+    S2 -> a&S2 | aa ;
+) ;;
+
+gramatica_gr2 ::= Grammar (
+    nonterminals :: { S, S1, S2 } ;
+    alphabet :: { a, b } ;
+    start_symbol :: S ;
+
+    S -> a&S | b&S | a&S1 ;
+    S1 -> b&S2 | e | x&S ;
+    S2 -> a&S2 | aa ;
+) ;;
+
+gramatica_gdc1 ::= Grammar (
+    alphabet :: { f, y, d, r, b } ;
+    start_symbol :: T ;
+
+    T -> e ;
+    S -> a&S&a | b&S&b ;
+) ;; 
+
+gramatica_gdc2 ::= Grammar (
+    alphabet :: { 5, 8, k, 3 } ;
+    start_symbol :: T ;
+
+    T -> e | fD ;
+    D -> a&R | bT ;
+    aDb -> abD | aD13 ;
+) ;;
+
+gramatica_gfr ::= Grammar (
+    alphabet :: { f, y, d, r, b } ;
+    start_symbol :: T ;
+
+    aKm1H -> vB&a | p ;
+) ;;
